@@ -8,6 +8,7 @@
 ### Routes
  - /user/create   - [POST]
   - Expected input JSON Data
+
     ```js
       {
         "email":"fakeemail@test.com",
@@ -16,6 +17,7 @@
       }
     ```
   - Expected Response
+
     ```js
       {
         "code": 200,
