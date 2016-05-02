@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ptariche/ecma7-koa2-example-boilerplate.git"
+    "url": "git+https://github.com/ptariche/ecma7-koa2-starter.git"
   },
   "keywords": [
     "ecma7",
@@ -50,7 +50,7 @@
   "author": "Peter A. Tariche",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ptariche/ecma7-koa2-example-boilerplate/issues"
+    "url": "https://github.com/ptariche/ecma7-koa2-starter/issues"
   },
-  "homepage": "https://github.com/ptariche/ecma7-koa2-example-boilerplate#readme"
+  "homepage": "https://github.com/ptariche/ecma7-koa2-starter#readme"
 }
