@@ -1,4 +1,4 @@
-# ECMA7 Koa2 Example Boilerplate
+# ECMA7 Koa2 Starter
 
 ### PREREQUISITES
  - Couchbase
