@@ -21,7 +21,7 @@ helpers.chain = async (_functions) => {
     let _function = _functions[i];
     result = _this ? await _this[_function]() : await _function();
     _this = result;
-  };
+  }
 
   return result;
 };
