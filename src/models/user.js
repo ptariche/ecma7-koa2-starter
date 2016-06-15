@@ -31,7 +31,7 @@ class User {
   };
 
   async remove (lookup) {
-    return await this.db.bucket.removeAsync(lookup, insert);
+    return await this.db.bucket.removeAsync(lookup, {});
   };
 
 };
