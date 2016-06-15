@@ -23,7 +23,7 @@ class User {
   };
 
   async find (lookup) {
-    return await this.db.bucket.getAsync(lookup);
+    return await this.db.bucket.getAsync(lookup, {});
   };
 
   async update (lookup, insert) {
