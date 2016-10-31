@@ -14,15 +14,21 @@ const CONVERT        = require('koa-convert');
 const SESSION        = require('koa-generic-session');
 
 // ENVIRONMENT VARIABLES
-const SECRET         = process.env.SECRET           || 'faekkkeee00$';
-const PORT           = process.env.PORT             || 3000;
-const COUCHBASE_URI  = process.env.COUCHBASE_URI    || 'couchbase://127.0.0.1';
-const COUCHBASE_BUCK = process.env.COUCHBASE_BUCKET || 'default';
-const PASSWORD       = process.env.PASSWORD         || 'superfakepassword';
+const SECRET           = process.env.SECRET           || 'faekkkeee00$';
+const PORT             = process.env.PORT             || 3000;
+const COUCHBASE_URI    = process.env.COUCHBASE_URI    || 'couchbase://127.0.0.1';
+const COUCHBASE_BUCK   = process.env.COUCHBASE_BUCKET || 'default';
+const PASSWORD         = process.env.PASSWORD         || 'superfakepassword';
+const CHANNEL_CAPICITY = process.env.CHANNEL_CAPICITY || 0;
 
 // DATABASE POOL
 const DB             = require('./lib/db');
 const DB_INSTANCE    = new DB(COUCHBASE_URI, COUCHBASE_BUCK, PASSWORD);
+
+// CHANNELS
+const CHANNEL          = require('./lib/channel');
+const CHANNEL_INSTANCE = new CHANNEL(CHANNEL_CAPICITY);
+const CHANNEL_LAMBDA   = require('./lib/channel_lambda');
 
 // APP
 const APP = new KOA();
@@ -46,9 +52,11 @@ APP.use(BODY_PARSER({
   }
 }));
 
-// PASS DATABASE INSTANCE TO CTX CONTEXT
+// PASS DATABASE AND CHANNEL INSTANCES TO CTX CONTEXT
 APP.use(async (ctx, next) => {
-  ctx.state.db = DB_INSTANCE;
+  ctx.state.db      = DB_INSTANCE;
+  ctx.state.channel = CHANNEL_INSTANCE;
+  ctx.state.fn      = CHANNEL_LAMBDA(ctx);
   await next();
 });
 

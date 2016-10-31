@@ -42,7 +42,12 @@ class User extends EVENT_EMITER {
   };
 
   model(user) {
-    return new USER(this.db, {email: user.email, firstName: user.firstName, lastName: user.lastName, password: user.password});
+    return new USER(this.db, {
+      email: user.email,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      password: user.password
+    });
   };
 
   setState (user) {
@@ -77,8 +82,14 @@ class User extends EVENT_EMITER {
     await this.hygiene();
     if (!this._error) {
 
-      let user   = { email: this._state.email, firstName: this._state.firstName, lastName: this._state.lastName, password: this._state.password };
-      user       = await this.create(user);
+      let user = {
+        email: this._state.email,
+        firstName: this._state.firstName,
+        lastName: this._state.lastName,
+        password: this._state.password
+      };
+
+      user = await this.create(user);
 
       if (user.cas) {
         this.respond.body   = { user: { created: true} };
