@@ -43,10 +43,10 @@ class User extends EVENT_EMITER {
 
   model(user) {
     return new USER(this.db, {
-      email: user.email,
+      email:     user.email,
       firstName: user.firstName,
-      lastName: user.lastName,
-      password: user.password
+      lastName:  user.lastName,
+      password:  user.password
     });
   };
 
@@ -83,10 +83,10 @@ class User extends EVENT_EMITER {
     if (!this._error) {
 
       let user = {
-        email: this._state.email,
+        email:     this._state.email,
         firstName: this._state.firstName,
-        lastName: this._state.lastName,
-        password: this._state.password
+        lastName:  this._state.lastName,
+        password:  this._state.password
       };
 
       user = await this.create(user);

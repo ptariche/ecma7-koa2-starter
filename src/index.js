@@ -54,9 +54,9 @@ APP.use(BODY_PARSER({
 
 // PASS DATABASE AND CHANNEL INSTANCES TO CTX CONTEXT
 APP.use(async (ctx, next) => {
-  ctx.state.db      = DB_INSTANCE;
-  ctx.state.channel = CHANNEL_INSTANCE;
-  ctx.state.fn      = CHANNEL_LAMBDA(ctx);
+  ctx.state.db         = DB_INSTANCE;
+  ctx.state.channel    = CHANNEL_INSTANCE;
+  ctx.state.channel.fn = CHANNEL_LAMBDA(ctx);
   await next();
 });
 
