@@ -71,9 +71,3 @@ module.exports.post = async (ctx, next) => {  return ctx.body = await CHAIN([() 
 
 #### Authors
 Peter A.Tariche
-
-#### GPG
-```
-pub   4096R/20B2284C 2016-04-29 [expires: 2017-04-29]
-uid       [ultimate] Peter A. Tariche <ptariche@gmail.com>
-```
