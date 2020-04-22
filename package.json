@@ -17,7 +17,11 @@
     "boilerplate"
   ],
   "dependencies": {
+    "axios": "^0.15.2",
     "bcrypt": "^0.8.6",
+    "channel": "git+https://github.com/tj/channel.js.git",
+    "co": "^4.6.0",
+    "co-sleep": "0.0.1",
     "couchbase-promises": "^2.0.0",
     "genit": "^1.0.3",
     "is_js": "^0.8.0",
@@ -31,8 +35,7 @@
     "koa-response-time": "^2.0.0",
     "koa-router": "^7.0.1",
     "koa-send": "^2.0.2",
-    "node-uuid": "^1.4.7",
-    "thenify": "^3.2.0"
+    "node-uuid": "^1.4.7"
   },
   "devDependencies": {
     "babel-cli": "^6.7.5",

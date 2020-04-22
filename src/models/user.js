@@ -10,7 +10,6 @@ const THENIFY = require('../helpers/').thenify;
 class User {
   constructor(db, user) {
     this.db             = db             || null;
-
     this.user           = {};
     this.user.email     = user.email     || null;
     this.user.firstName = user.firstName || null;

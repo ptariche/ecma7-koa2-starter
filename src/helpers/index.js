@@ -1,7 +1,7 @@
 'use strict';
 
-const THENIFY = require('thenify');
 const BCRYPT  = require('bcrypt');
+const AXIOS   = require('axios');
 
 // ENVIRONMENT VARIABLES
 const SALT    = process.env.SALT || 'faekkkeee00$';
@@ -11,8 +11,19 @@ if (!SALT) {
   process.exit(0);
 }
 
-let helpers    = {};
-helpers.bcrypt = {};
+class Request {
+  static async get (uri) {
+    return await AXIOS.get(uri);
+  };
+
+  static async post (uri) {
+    return await AXIOS.post(uri);
+  };
+};
+
+let helpers     = {};
+helpers.bcrypt  = {};
+helpers.request = Request;
 
 helpers.chain = async (_functions) => {
   let _this  = null;
@@ -24,10 +35,6 @@ helpers.chain = async (_functions) => {
   }
 
   return result;
-};
-
-helpers.thenify = (func, context) => {
-  return context ? THENIFY(func).bind(context) : THENIFY(func);
 };
 
 helpers.bcrypt.genSalt = (rounds, ignore) => {

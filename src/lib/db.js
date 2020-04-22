@@ -1,12 +1,12 @@
 'use strict';
 
 const EVENT_EMITER = require('events').EventEmitter;
-let couchbase      = require('couchbase-promises');
+let Couchbase      = require('couchbase-promises');
 
 class Db extends EVENT_EMITER {
   constructor(couchbaseUri, couchbaseBuck, password) {
     super();
-    this.cluster = new couchbase.Cluster(couchbaseUri, password);
+    this.cluster = new Couchbase.Cluster(couchbaseUri, password);
     this.bucket  = this.cluster.openBucket(this.couchbaseBuck, (err) => {
       if (err) this.emit('error', err);
     });
@@ -14,7 +14,7 @@ class Db extends EVENT_EMITER {
   };
 
   setCluster(couchbaseUri, password) {
-    this.cluster = new couchbase.Cluster(couchbaseUri, password);
+    this.cluster = new Couchbase.Cluster(couchbaseUri, password);
     return this;
   };
 
