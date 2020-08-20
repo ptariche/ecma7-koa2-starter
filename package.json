@@ -17,7 +17,7 @@
     "boilerplate"
   ],
   "dependencies": {
-    "bcrypt": "^0.8.6",
+    "bcrypt": "^5.0.0",
     "couchbase-promises": "^2.0.0",
     "genit": "^1.0.3",
     "is_js": "^0.8.0",
